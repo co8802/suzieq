@@ -86,7 +86,7 @@ apply:
 
   linux:
       version: all
-      command: sudo vtysh -c "show bgp vrf all neighbors json"
+      command: vtysh -c "show bgp vrf all neighbors json"
       normalize: '*:vrf/*:peer/[
         "neighborCapabilities/multiprotocolExtensions/*:_sqstore/received: afisRcvOnly",
         "neighborCapabilities/multiprotocolExtensions/*:_sqstore/advertised: afisAdvOnly",

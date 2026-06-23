@@ -40,7 +40,7 @@ apply:
 
   cumulus:
     version: all
-    command: sudo vtysh -c 'show ip ospf vrf all interface'
+    command: vtysh -c 'show ip ospf vrf all interface'
     textfsm: textfsm_templates/frr_ospfif.tfsm
 
   linux:

@@ -13,7 +13,7 @@ show-fields:
 apply:
   cumulus:
     version: all
-    command: sudo vtysh -c "show evpn vni detail json"
+    command: vtysh -c "show evpn vni detail json"
     normalize: '*/[
     "vni: vni",
     "type: type",

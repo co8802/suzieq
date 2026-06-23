@@ -15,7 +15,7 @@ show-fields:
 apply:
   cumulus:
     version: all
-    command: sudo vtysh -c "show int vrf all"; ip -d address show
+    command: vtysh -c "show int vrf all"; ip -d address show
     textfsm: textfsm_templates/cl_interfaces.tfsm
 
   sonic:

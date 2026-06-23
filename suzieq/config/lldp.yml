@@ -51,7 +51,7 @@ apply:
 
   linux:
     version: all
-    command: if systemctl status lldpd > /dev/null 2>&1; then sudo lldpctl; fi
+    command: if systemctl status lldpd > /dev/null 2>&1; then lldpctl; fi
     textfsm: textfsm_templates/lldpd.tfsm
 
   sonic:
