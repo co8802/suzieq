@@ -1,0 +1,18 @@
+{
+    "namespace": "suzieq",
+    "name": "bgproutes",
+    "type": "record",
+    "fields": [
+        {"name": "namespace", "type": "string", "key": 0, "display": 0, "partition": 1, "description": "Namespace associated with this record"},
+        {"name": "hostname", "type": "string", "key": 1, "display": 1, "partition": 2, "description": "Hostname associated with this record"},
+        {"name": "vrf", "type": "string", "key": 2, "display": 2, "description": "VRF associated with this route"},
+        {"name": "prefix", "type": "string", "key": 3, "display": 3, "description": "IP route prefix"},
+        {"name": "localPref", "type": "long", "display": 4, "description": "BGP local preference for this path"},
+        {"name": "asPathList", "type": "string", "display": 5, "description": "The AS path for this route"},
+        {"name": "peerIP", "type": "string", "display": 6, "description": "Peer that advertised this path"},
+        {"name": "nexthopIps", "type": {"type": "array", "items": {"name": "nexthopIp", "type": "string"}}, "description": "List of nexthop IPs"},
+        {"name": "sqvers", "type": "string", "partition": 0, "default": "1.0", "suppress": true, "description": "Schema version, not selectable"},
+        {"name": "timestamp", "type": "timestamp", "display": 7, "description": "Unix epoch when this record was created, in ms"},
+        {"name": "active", "type": "boolean", "description": "If this entry is active or deleted"}
+    ]
+}

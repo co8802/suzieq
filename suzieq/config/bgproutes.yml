@@ -1,0 +1,27 @@
+service: bgproutes
+keys:
+  - vrf
+  - prefix
+show-fields:
+  - vrf
+  - prefix
+  - localPref
+  - asPathList
+  - nexthopIps
+
+apply:
+  linux:
+    version: all
+    command: vtysh -c "show ip bgp json"
+    normalize: '*:vrfName:vrf/routes/*:prefix/[*]/[
+        "locPrf: localPref?|100",
+        "path: asPathList?|",
+        "valid: validState?|",
+        "peerId: peerIP?|",
+        "nexthops/[*]/ip: nexthopIps?|[]",
+        "nexthops/[*]/hostname: _nexthopHostnames?|[]"
+        ]'
+  cumulus:
+    copy: linux
+  sonic:
+    copy: linux
